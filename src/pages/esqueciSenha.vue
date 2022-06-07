@@ -15,7 +15,7 @@
       <q-card-actions class="q-pt-none">
         <q-btn
           outline
-          class="q-mx-sm"
+          class="q-mx-sm q-mb-sm"
           color="primary"
           style="width: 100%"
           label="Redefinir senha"
