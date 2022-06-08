@@ -1,19 +1,25 @@
 <template>
   <q-page class="flex flex-center bg-primary">
-    <q-card
-      style="width: 300px; height: auto; display: flex; flex-direction: column"
-    >
+    <q-card class="block" style="width: 300px">
       <q-card-section class="q-pb-sm">
         <h1 class="text-h6">Login</h1>
       </q-card-section>
 
       <q-card-section class="q-pt-none">
-        <q-input filled v-model="login.email" label="E-mail" />
+        <q-input
+          v-model="login.email"
+          filled
+          clearable
+          clear-icon="close"
+          label="E-mail"
+        />
 
         <q-input
-          class="q-mt-sm"
-          label="Senha"
           v-model="login.password"
+          class="q-mt-sm"
+          clearable
+          clear-icon="close"
+          label="Senha"
           filled
           :type="login.isPwd ? 'password' : 'text'"
         >
@@ -27,15 +33,22 @@
         </q-input>
       </q-card-section>
 
-      <q-card-actions class="q-pt-none">
+      <div class="flex flex-center">
         <q-btn
-          class="q-mx-sm"
-          color="primary"
-          style="width: 100%"
+          class="q-mr-md"
           label="Login"
+          color="primary"
           @click="$router.push({ name: 'home' })"
         />
-      </q-card-actions>
+        <q-btn
+          class="text-green-10"
+          label="Cadastrar"
+          type="reset"
+          color="defaoult"
+          @click="$router.push({ name: 'cadastro' })"
+        />
+      </div>
+
       <q-card-actions class="q-pt-none">
         <q-btn
           flat
@@ -52,7 +65,7 @@
 
 <script>
 export default {
-  name: 'PageIndex',
+  name: 'login',
   data () {
     return {
       login: {

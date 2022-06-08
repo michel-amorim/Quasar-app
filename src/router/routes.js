@@ -8,6 +8,11 @@ const routes = [
         path: '/esqueci-minha-senha',
         name: 'esqueciSenha',
         component: () => import('pages/esqueciSenha.vue')
+      },
+      {
+        path: '/cadastro',
+        name: 'cadastro',
+        component: () => import('pages/cadastro.vue')
       }
     ]
   },
@@ -16,9 +21,6 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: '', name: 'home', component: () => import('pages/Index.vue') }]
   },
-
-  // Always leave this as last one,
-  // but you can also remove it
   {
     path: '*',
     component: () => import('pages/Error404.vue')
