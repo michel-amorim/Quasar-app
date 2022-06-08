@@ -1,6 +1,7 @@
 <template>
   <q-page class="flex flex-center bg-primary">
     <q-card class="block" style="width: 300px">
+
       <q-card-section class="q-pb-sm">
         <h1 class="text-h6">Login</h1>
       </q-card-section>
@@ -33,15 +34,15 @@
         </q-input>
       </q-card-section>
 
-      <div class="flex flex-center">
+      <div class="row q-px-md">
         <q-btn
-          class="q-mr-md"
+          class="q-mr-md col"
           label="Login"
           color="primary"
           @click="$router.push({ name: 'home' })"
         />
         <q-btn
-          class="text-green-10"
+          class="text-green-10 col"
           label="Cadastrar"
           type="reset"
           color="defaoult"
@@ -49,7 +50,7 @@
         />
       </div>
 
-      <q-card-actions class="q-pt-none">
+      <q-card-actions>
         <q-btn
           flat
           class="q-mx-sm"
@@ -74,7 +75,6 @@ export default {
         isPwd: true
       }
     }
-  },
-  methods: {}
+  }
 }
 </script>

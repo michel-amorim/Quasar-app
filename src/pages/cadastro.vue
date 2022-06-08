@@ -12,7 +12,7 @@
           <q-input
             v-model="form.nome"
             type="text"
-            outlined
+            filled
             clearable
             clear-icon="close"
             color="primary"
@@ -28,7 +28,7 @@
           <q-input
             v-model.number="form.idade"
             type="number"
-            outlined
+            filled
             clearable
             clear-icon="close"
             label="idade"
@@ -45,7 +45,7 @@
           </q-input>
 
           <q-input
-            outlined
+            filled
             clearable
             clear-icon="close"
             color="primary"
@@ -62,7 +62,7 @@
           <q-input
             v-model="form.telefone"
             label="Telefone"
-            outlined
+            filled
             clearable
             clear-icon="close"
             color="primary"
