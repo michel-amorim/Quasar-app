@@ -1,7 +1,6 @@
 <template>
   <q-page class="flex flex-center bg-primary">
     <q-card class="block" style="width: 300px">
-
       <q-card-section class="q-pb-sm">
         <h1 class="text-h6">Login</h1>
       </q-card-section>
@@ -13,7 +12,10 @@
           clearable
           clear-icon="close"
           label="E-mail"
-        />
+        >
+          <template v-slot:prepend>
+            <q-icon class="justify-start" name="mails" /> </template
+        ></q-input>
 
         <q-input
           v-model="login.password"

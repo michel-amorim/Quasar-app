@@ -31,7 +31,7 @@
             filled
             clearable
             clear-icon="close"
-            label="idade"
+            label="Idade"
             color="primary"
             class="col-xs-12"
             :rules="[
@@ -56,7 +56,7 @@
             :rules="[(val) => (val && val.length > 0) || 'E-mail obrigatório']"
           >
             <template v-slot:prepend>
-              <q-icon name="mails" />
+              <q-icon class="justify-start" name="mails" />
             </template>
           </q-input>
           <q-input
@@ -84,9 +84,10 @@
             />
             <q-btn
               class="float-right text-green-10 q-mr-md"
-              label="Resetar"
+              label="Voltar"
               type="reset"
               color="default"
+              @click="$router.push({ name: 'login' })"
             />
           </div>
         </q-form>
