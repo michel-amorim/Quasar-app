@@ -6,7 +6,7 @@
       <div style="font-size: 30vh">404</div>
 
       <div class="text-h2" style="opacity: 0.4">
-        Oops. Não achamos o que procura...
+        Oops Não achamos o que procura...
       </div>
 
       <q-btn
