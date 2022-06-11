@@ -7,7 +7,7 @@
 
       <q-card-section class="q-pt-none">
         <q-input
-          v-model="login.email"
+          v-model="login.username "
           type="text"
           filled
           clearable
@@ -76,7 +76,7 @@ export default {
   data () {
     return {
       login: {
-        email: '',
+        username: '',
         password: '',
         isPwd: true
       }
