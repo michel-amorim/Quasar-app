@@ -1,12 +1,12 @@
 // Home
-export const HOME = '/'
+export const LOGIN = '/'
 
 // Auth
-export const AUTENTICADO = '/auth'
+export const HOME = '/inicio'
 
 // Pages
 export const CADASTRO = '/cadrastro'
-export const ESQUECISENHA = '/esqueci-minha-senha'
+export const ESQUECI_SENHA = '/esqueci-minha-senha'
 
 // Errors
 

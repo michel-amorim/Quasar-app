@@ -45,7 +45,7 @@
           class="q-mr-md col"
           label="Login"
           color="primary"
-          @click="$router.push({ name: 'home' })"
+        @click="$router.push({ name: 'home' })"
         />
         <q-btn
           class="text-green-10 col"
@@ -63,7 +63,7 @@
           color="primary"
           style="width: 100%"
           label="Esqueci minha senha"
-          @click="$router.push({ name: 'esqueciSenha' })"
+          @click="$router.push({ name: 'esqueci-senha' })"
         />
       </q-card-actions>
     </q-card>

@@ -1,14 +1,14 @@
-import { CADASTRO, ESQUECISENHA, NOT_FOUND, AUTENTICADO } from '../router/constants/index'
+import { CADASTRO, ESQUECI_SENHA, NOT_FOUND, HOME, LOGIN } from '../router/constants'
 
 const routes = [
   {
-    path: '/',
+    path: LOGIN,
     component: () => import('layouts/loginLayout.vue'),
     children: [
       { path: '', name: 'login', component: () => import('pages/login.vue') },
       {
-        path: ESQUECISENHA,
-        name: 'esqueciSenha',
+        path: ESQUECI_SENHA,
+        name: 'esqueci-senha',
         component: () => import('pages/esqueciSenha.vue')
       },
       {
@@ -19,7 +19,7 @@ const routes = [
     ]
   },
   {
-    path: AUTENTICADO,
+    path: HOME,
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: '', name: 'home', component: () => import('pages/Index.vue') }]
   },

@@ -111,8 +111,8 @@
 </template>
 
 <script>
-import { Api } from '../services/Api'
-import { CADASTRAR } from '../services/endpoints'
+// import { Api } from '../services/Api'
+// import { CADASTRAR } from '../services/endpoints'
 
 export default {
   name: 'cadastro',
@@ -128,17 +128,17 @@ export default {
     }
   },
   methods: {
-    async onSubmit () {
-      const sendData = {
-        name: this.form.name,
-        password: this.form.password,
-        username: this.form.username,
-        tel: this.form.tel
-      }
+    onSubmit () {
+    //   const sendData = {
+    //     name: this.form.name,
+    //     password: this.form.password,
+    //     username: this.form.username,
+    //     tel: this.form.tel
+    //   }
 
-      const response = await Api.post(CADASTRAR, sendData)
+      //   const response = await Api.post(CADASTRAR, sendData)
 
-      console.log(response)
+      // console.log(response)
       this.$q.notify({
         message: 'Cadastro realizado com sucesso!',
         color: 'positive',
@@ -148,7 +148,7 @@ export default {
     },
     async onReset () {
       await this.resetForm()
-      this.refs.myForm.resetValidation()
+      this.$refs.myForm.resetValidation()
     },
     async resetForm () {
       this.form = {
