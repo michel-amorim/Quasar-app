@@ -2,12 +2,13 @@
   <q-page class="flex flex-center bg-primary">
     <q-card class="block" style="width: 300px">
       <q-card-section class="q-pb-sm">
-        <h1 class="text-h6">Login</h1>
+        <h1 class="text-h5">Login</h1>
       </q-card-section>
 
       <q-card-section class="q-pt-none">
         <q-input
           v-model="login.email"
+          type="text"
           filled
           clearable
           clear-icon="close"
@@ -26,6 +27,9 @@
           filled
           :type="login.isPwd ? 'password' : 'text'"
         >
+          <template v-slot:prepend>
+            <q-icon name="lock" />
+          </template>
           <template v-slot:append>
             <q-icon
               :name="login.isPwd ? 'visibility_off' : 'visibility'"

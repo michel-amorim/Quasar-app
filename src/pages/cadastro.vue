@@ -26,21 +26,28 @@
           </q-input>
 
           <q-input
-            v-model.number="form.idade"
-            type="number"
+            v-model="form.password"
             filled
             clearable
             clear-icon="close"
-            label="Idade"
             color="primary"
+            label="Senha"
             class="col-xs-12"
+            :type="form.isPwd ? 'password' : 'text'"
             :rules="[
-              (val) => (val !== null && val !== '') || 'Idade obrigatório',
-              (val) => (val > 0 && val < 100) || 'coloque uma idade real',
+              (val) => (val !== null && val !== '') || 'Senha obrigatório',
+              (val) => (val && val.length > 5) || 'Minimo 6 digitos',
             ]"
           >
             <template v-slot:prepend>
-              <q-icon name="person" />
+              <q-icon name="lock" />
+            </template>
+            <template v-slot:append>
+              <q-icon
+                :name="form.isPwd ? 'visibility_off' : 'visibility'"
+                class="cursor-pointer"
+                @click="form.isPwd = !form.isPwd"
+              />
             </template>
           </q-input>
 
@@ -59,8 +66,10 @@
               <q-icon class="justify-start" name="mails" />
             </template>
           </q-input>
+
           <q-input
             v-model="form.telefone"
+            icon="call"
             label="Telefone"
             filled
             clearable
@@ -68,14 +77,19 @@
             color="primary"
             class="col-xs-12"
             mask="(##) #####-####"
+            hint="Telefone: (##) #####-####"
             unmasked-value
             :rules="[
               (val) => (val && val.length > 0) || 'Telefone obrigatório',
               (val) => val.length === 11 || 'Coloque um telefone real',
             ]"
-          />
+          >
+            <template v-slot:prepend>
+              <q-icon name="call" />
+            </template>
+          </q-input>
 
-          <div class="col-12">
+          <div class="col-12 q-mt-lg">
             <q-btn
               class="float-right"
               label="Cadastrar"
@@ -97,19 +111,28 @@
 </template>
 
 <script>
+import { Api } from '../services/Api'
+import { CADASTRAR, LOGIN } from '../services/endpoints'
+
 export default {
   name: 'cadastro',
   data () {
     return {
       form: {
         nome: '',
-        idade: null,
+        password: '',
+        isPwd: true,
         email: '',
         telefone: ''
       }
     }
   },
   methods: {
+    postCadastro () {
+      console.log(Api)
+      console.log(CADASTRAR, LOGIN)
+    },
+
     onSubmit () {
       console.log('Formulario submetido')
       this.$q.notify({
@@ -126,7 +149,8 @@ export default {
     async resetForm () {
       this.form = {
         nome: '',
-        idade: null,
+        password: '',
+        isPwd: true,
         email: '',
         telefone: ''
       }
