@@ -127,16 +127,17 @@ export default {
       }
     }
   },
+
   methods: {
     onSubmit () {
-    //   const sendData = {
-    //     name: this.form.name,
-    //     password: this.form.password,
-    //     username: this.form.username,
-    //     tel: this.form.tel
-    //   }
+      // const sendData = {
+      //   name: this.form.name,
+      //   password: this.form.password,
+      //   username: this.form.username,
+      //   tel: this.form.tel
+      // }
 
-      //   const response = await Api.post(CADASTRAR, sendData)
+      // const response = await Api.post(CADASTRAR, sendData)
 
       // console.log(response)
       this.$q.notify({
@@ -146,6 +147,7 @@ export default {
       })
       this.onReset()
     },
+
     async onReset () {
       await this.resetForm()
       this.$refs.myForm.resetValidation()

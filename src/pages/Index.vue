@@ -1,7 +1,9 @@
 <template>
-  <q-page padding>
+  <q-page class="q-pa-md">
     <q-card class="row">
+      <skeleton-table v-if="load" :colunas="3" :linhas="5" class="col" />
       <q-table
+        v-else
         title="Tabela"
         :data="posts"
         :columns="columns"
@@ -39,8 +41,14 @@
 <script>
 export default {
   name: 'PageIndex',
+
+  components: {
+    SkeletonTable: () => import('components/skeletons/SkeletonTable.vue')
+  },
+
   data () {
     return {
+      load: true,
       columns: [
         {
           name: 'id',
@@ -69,6 +77,9 @@ export default {
   },
 
   mounted () {
+    setTimeout(() => {
+      this.load = false
+    }, 2000)
     this.getPosts()
   },
 

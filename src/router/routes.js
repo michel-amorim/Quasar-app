@@ -5,7 +5,11 @@ const routes = [
     path: LOGIN,
     component: () => import('layouts/loginLayout.vue'),
     children: [
-      { path: '', name: 'login', component: () => import('pages/login.vue') },
+      {
+        path: '',
+        name: 'login',
+        component: () => import('pages/login.vue')
+      },
       {
         path: ESQUECI_SENHA,
         name: 'esqueci-senha',

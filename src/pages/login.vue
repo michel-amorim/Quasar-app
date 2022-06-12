@@ -7,7 +7,7 @@
 
       <q-card-section class="q-pt-none">
         <q-input
-          v-model="login.username "
+          v-model="login.username"
           type="text"
           filled
           clearable
@@ -15,7 +15,7 @@
           label="E-mail"
         >
           <template v-slot:prepend>
-            <q-icon class="justify-start" name="mails" /> </template
+            <q-icon class="justify-start" name="mails" /></template
         ></q-input>
 
         <q-input
