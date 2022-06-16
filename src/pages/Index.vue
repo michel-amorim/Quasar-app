@@ -1,6 +1,6 @@
 <template>
-  <q-page class="q-pa-md">
-    <q-card class="row">
+  <q-page class="q-pa-lg">
+    <div class="row">
       <skeleton-table v-if="load" :colunas="3" :linhas="5" class="col" />
       <q-table
         v-else
@@ -34,7 +34,28 @@
           </q-td>
         </template>
       </q-table>
-    </q-card>
+    </div>
+
+    <div class="flex justify-center q-mt-xl">
+      <div>
+        <img alt="mapa" src="~assets/map.svg" />
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <div>
+        <p>latitude: {{ this.latitude }}</p>
+        <p>Longitude: {{ this.longitude }}</p>
+      </div>
+    </div>
+    <div class="flex justify-center q-mt-lg">
+      <q-btn
+        color="purple-6"
+        label="Minha localização"
+        push
+        size="lg"
+        @click="getGeolocation"
+      />
+    </div>
   </q-page>
 </template>
 
@@ -49,6 +70,10 @@ export default {
   data () {
     return {
       load: true,
+
+      latitude: '',
+      longitude: '',
+
       columns: [
         {
           name: 'id',
@@ -99,6 +124,46 @@ export default {
     },
     deletePost (idPost) {
       console.log(idPost)
+    },
+
+    getGeolocation () {
+      if (navigator.geolocation) {
+        this.$q.loading.show()
+        navigator.geolocation.getCurrentPosition(
+          this.setPosition,
+          this.errorPosition
+        )
+      } else {
+        this.errorPosition()
+      }
+    },
+    setPosition (position) {
+      const coords = position.coords
+      this.latitude = coords.latitude
+      this.longitude = coords.longitude
+      this.successNotify()
+      this.$q.loading.hide()
+    },
+    errorPosition () {
+      this.$q.notify({
+        position: 'bottom',
+        timeout: 3000,
+        color: 'negative',
+        textColor: 'white',
+        actions: [{ icon: 'close', color: 'white' }],
+        message: 'Não foi possível recupera sua posição!'
+      })
+      this.$q.loading.hide()
+    },
+    successNotify () {
+      this.$q.notify({
+        position: 'bottom',
+        timeout: 3000,
+        color: 'positive',
+        textColor: 'white',
+        actions: [{ icon: 'check', color: 'white' }],
+        message: 'Posição recuperada com sucesso!'
+      })
     }
   }
 }
