@@ -34,16 +34,16 @@
           </q-td>
         </template>
       </q-table>
-    </div>
 
+    </div>
     <div class="flex justify-center q-mt-xl">
       <div>
         <img alt="mapa" src="~assets/map.svg" />
       </div>
     </div>
     <div class="flex justify-center">
-      <div>
-        <p>latitude: {{ this.latitude }}</p>
+      <div class="flex">
+        <p class="q-mr-sm">latitude: {{ this.latitude }}</p>
         <p>Longitude: {{ this.longitude }}</p>
       </div>
     </div>
@@ -158,7 +158,7 @@ export default {
     successNotify () {
       this.$q.notify({
         position: 'bottom',
-        timeout: 3000,
+        timeout: 5000,
         color: 'positive',
         textColor: 'white',
         actions: [{ icon: 'check', color: 'white' }],
