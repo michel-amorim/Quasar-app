@@ -1,26 +1,38 @@
 <template>
   <q-page class="flex flex-center bg-primary">
-    <q-card
-      style="width: 300px; height: auto; display: flex; flex-direction: column"
-    >
-      <q-card-section class="q-pb-sm">
-        <h1 class="text-h6">Cadastro</h1>
-      <Cadastro />
-      </q-card-section>
-
-      <q-card-section class="q-pt-none"> </q-card-section>
-    </q-card>
+    <Cadastro />
   </q-page>
 </template>
 
 <script>
-// import { Api } from '../services/Api'
-// import { CADASTRAR } from '../services/endpoints'
-
 export default {
   name: 'cadastro',
   components: {
     Cadastro: () => import('components/FormCadastro/Cadastro.vue')
+  },
+  methods: {
+    onSubmit () {
+      this.$q.notify({
+        message: 'Cadastro realizado com sucesso!',
+        color: 'positive',
+        icon: 'check_circle_outline'
+      })
+      this.onReset()
+    },
+
+    async onReset () {
+      await this.resetForm()
+      this.$refs.myForm.resetValidation()
+    },
+    async resetForm () {
+      this.form = {
+        name: '',
+        password: '',
+        username: '',
+        tel: '',
+        isPwd: true
+      }
+    }
   }
 }
 </script>
