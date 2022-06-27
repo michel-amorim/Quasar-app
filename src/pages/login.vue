@@ -22,9 +22,9 @@
           v-model="login.password"
           class="q-mt-sm"
           clearable
+          filled
           clear-icon="close"
           label="Senha"
-          filled
           :type="login.isPwd ? 'password' : 'text'"
         >
           <template v-slot:prepend>
