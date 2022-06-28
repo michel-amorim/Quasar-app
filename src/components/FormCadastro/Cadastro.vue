@@ -3,7 +3,7 @@
     style="width: 300px; height: auto; display: flex; flex-direction: column"
   >
     <q-card-section class="q-pb-sm">
-      <h1 class="text-h6">Cadastro</h1>
+      <h1 class="text-h5">Cadastro</h1>
       <q-form class="row" @submit="onSubmit" ref="myForm">
         <q-input
           v-model="form.name"
@@ -74,7 +74,12 @@
         </q-input>
 
         <div class="col-12 q-mt-lg">
-          <q-btn class="float-right" label="Cadastrar" type="submit" />
+          <q-btn
+            class="float-right"
+            label="Cadastrar"
+            type="submit"
+            color="primary"
+          />
           <q-btn
             class="float-right text-green-10 q-mr-md"
             label="Voltar"
@@ -101,7 +106,6 @@ export default {
       }
     }
   },
-
   methods: {
     onSubmit () {
       this.$q.notify({
