@@ -7,7 +7,13 @@
 
       <q-card-section class="q-pt-none">
         <q-item-label class="q-mb-sm">E-mail de cadastro</q-item-label>
-        <q-input filled v-model="email" label="E-mail">
+        <q-input
+          v-bind="{ ...$visualInput }"
+          type="email"
+          clear-icon="close"
+          v-model="email"
+          label="E-mail"
+        >
           <template v-slot:prepend>
             <q-icon class="justify-start" name="mails" /> </template
         ></q-input>
